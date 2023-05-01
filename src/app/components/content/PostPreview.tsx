@@ -1,6 +1,6 @@
 import React from 'react'
 import { PostReviewProps } from '../../types/props/post-review-props.type'
-import StyledButton from '../styled/styled-button'
+import StyledButton from '../../styles/components/styled-button'
 import DOMPurify from 'dompurify'
 
 const PostPreview = ({ post, onPostSelect }: PostReviewProps) => {

@@ -1,11 +1,10 @@
 import DOMPurify from 'dompurify'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import StyledIconButton from '../styled/styled-icon-button'
+import StyledIconButton from '../../styles/components/styled-icon-button'
 
 const PostContent = ({ post, onPostDelete }: any) => {
   const navigate = useNavigate()
-  //TODO: Use redux to persist the selected post
   if (!post) {
     navigate('/blog')
     return null

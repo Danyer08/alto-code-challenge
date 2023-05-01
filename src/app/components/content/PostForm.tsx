@@ -1,10 +1,10 @@
 import React, { ChangeEvent, useState } from 'react'
 import { PostFormProps } from '../../types/props/post-form-props.type'
 import { useNavigate, useParams } from 'react-router-dom'
-import StyledInput from '../styled/styled-input'
-import StyledButton from '../styled/styled-button'
+import StyledInput from '../../styles/components/styled-input'
+import StyledButton from '../../styles/components/styled-button'
 import styles from '../../styles/post-form.module.css'
-import StyledTextarea from '../styled/styled-textarea'
+import StyledTextarea from '../../styles/components/styled-textarea'
 
 const PostForm = ({ post, onSubmit }: PostFormProps) => {
   const navigate = useNavigate()
@@ -14,7 +14,6 @@ const PostForm = ({ post, onSubmit }: PostFormProps) => {
   const [titleError, setTitleError] = useState('')
   const [contentError, setContentError] = useState('')
 
-  //TODO: Use redux to persist the selected post
   if (id && !post) {
     navigate('/blog')
     return null

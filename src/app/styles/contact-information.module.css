@@ -1,0 +1,34 @@
+.contact-information {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.contact-information li {
+    margin-right: var(--m-5);
+    font-size: 1rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--gray);
+    background-color: var(--gray-lighter);
+    border-radius: 20px;
+    padding: var(--p-3) var(--p-5);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-information li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-information a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.contact-information li:last-child {
+    margin-right: 0;
+}

@@ -1,12 +1,19 @@
 import React from 'react'
+import styles from '../../styles/contact-information.module.css'
 
 const ContactInformation = () => {
   return (
-    <div className="contact-information">
-      <p>Address: 123 Main St.</p>
-      <p>Phone: (555) 555-5555</p>
-      <p>Email: info@blog.com</p>
-    </div>
+    <ul className={styles['contact-information']}>
+      <li>
+        <a href="mailto:danjer0826@gmail.com">Email</a>
+      </li>
+      <li>
+        <a href="tel:+1 829-672-5361">Phone</a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/danyer-dominguez/?locale=en_US">Linkedin</a>
+      </li>
+    </ul>
   )
 }
 

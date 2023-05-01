@@ -24,7 +24,6 @@ const App = () => {
   }, [])
 
   const handlePostSelect = (post: Post) => {
-    //TODO: Use redux to persist the selected post
     setSelectedPost(post)
   }
 
