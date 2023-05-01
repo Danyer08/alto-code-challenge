@@ -1,0 +1,17 @@
+.d-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .d-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .d-grid {
+      grid-template-columns: 1fr;
+    }
+  }

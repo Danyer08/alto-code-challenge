@@ -1,9 +1,19 @@
 .d-flex {
     display: flex;
+    flex-direction: row;
+}
+
+.flex-row {
+    flex-direction: row;
 }
 
 .flex-column {
     flex-direction: column;
+}
+
+.flex-row-fixed {
+    flex-direction: row !important;
+    flex-wrap: nowrap;
 }
 
 .space-between {
@@ -12,4 +22,24 @@
 
 .align-items-center {
     align-items: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.col {
+    flex: 6;
+    max-width: 50%;
+}
+
+@media (max-width: 768px) {
+    .d-flex {
+        flex-direction: column;
+    }
+
+    .col {
+        flex: 1;
+        max-width: 100%;
+    }
 }

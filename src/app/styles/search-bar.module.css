@@ -51,3 +51,9 @@
 .search-bar button:active {
     background-color: var(--primary-dark);
 }
+
+@media (max-width: 768px) {
+    .search-bar-container {
+        display: none;
+    }
+}

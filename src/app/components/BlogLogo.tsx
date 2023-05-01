@@ -7,6 +7,9 @@ const LogoContainer = styled.div`
     width: 100%;
     max-width: 300px;
   }
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 
 const BlogLogo = () => {

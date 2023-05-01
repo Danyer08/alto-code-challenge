@@ -19,7 +19,7 @@ const PostContent = ({ post, onPostDelete }: PostDeleteProps) => {
   const cleanHtml = DOMPurify.sanitize(post.content)
   return (
     <React.Fragment>
-      <div className="d-flex align-items-center">
+      <div className="d-flex flex-row-fixed align-items-center">
         <h1 className="mr-3">{post.title}</h1>
         {user?.isAdmin && (
           <React.Fragment>
