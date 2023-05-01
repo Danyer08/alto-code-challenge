@@ -1,6 +1,6 @@
 import { Post } from '../../../core/models/post.model'
 
-export type PostReviewProps = {
+export type PostSelectProps = {
   post: Post
   onPostSelect: (post: Post) => void
 }

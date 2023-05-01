@@ -1,6 +1,6 @@
 import { Post } from '../../../core/models/post.model'
 
-export type AutoCompleteProps = {
+export type PostListProps = {
   posts: Array<Post>
-  onPostSelect: (option: Post) => void
+  onPostSelect: (post: Post) => void
 }

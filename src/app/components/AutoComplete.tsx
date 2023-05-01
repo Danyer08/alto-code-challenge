@@ -1,10 +1,10 @@
 import React from 'react'
-import { AutoCompleteProps } from '../types/props/auto-complete-props.type'
 import styles from '../styles/dropdown-menu.module.css'
 import { Post } from '../../core/models/post.model'
 import { useNavigate } from 'react-router-dom'
+import { PostListProps } from '../types/props/post-list-props.type'
 
-const AutoComplete = ({ posts, onPostSelect }: AutoCompleteProps) => {
+const AutoComplete = ({ posts, onPostSelect }: PostListProps) => {
   const navigate = useNavigate()
   const handlePostSelect = (post: Post) => {
     onPostSelect(post)

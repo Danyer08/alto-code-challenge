@@ -1,8 +1,8 @@
 import React from 'react'
 import PostPreview from './PostPreview'
-import { PostsProps } from '../../types/props/posts-props.type'
+import { PostListProps } from '../../types/props/post-list-props.type'
 
-const PostsList = ({ posts, onPostSelect }: PostsProps) => {
+const PostsList = ({ posts, onPostSelect }: PostListProps) => {
   return (
     <React.Fragment>
       {posts.map((post) => (

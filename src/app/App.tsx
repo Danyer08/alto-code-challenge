@@ -73,7 +73,7 @@ const App = () => {
           ></Route>
           <Route
             path="/blog/:id"
-            element={<PostPage post={selectedPost} onPostDelete={handlePostDelete} />}
+            element={<PostPage post={selectedPost!} onPostDelete={handlePostDelete} />}
           ></Route>
           <Route path="/blog/new" element={<PostFormPage onSubmit={handlePostSubmit} />}></Route>
           <Route

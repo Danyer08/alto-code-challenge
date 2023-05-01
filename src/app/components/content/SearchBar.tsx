@@ -1,10 +1,10 @@
 import React, { ChangeEvent, useState } from 'react'
-import { PostsProps } from '../../types/props/posts-props.type'
+import { PostListProps } from '../../types/props/post-list-props.type'
 import { Post } from '../../../core/models/post.model'
 import AutoComplete from '../AutoComplete'
 import styles from '../../styles/search-bar.module.css'
 
-const SearchBar = ({ posts, onPostSelect }: PostsProps) => {
+const SearchBar = ({ posts, onPostSelect }: PostListProps) => {
   const [searchTerm, setSearchTerm] = useState('')
   const [searchResults, setSearchResults] = useState<Post[]>([])
 

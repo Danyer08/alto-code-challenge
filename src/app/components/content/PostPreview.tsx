@@ -1,9 +1,9 @@
 import React from 'react'
-import { PostReviewProps } from '../../types/props/post-review-props.type'
+import { PostSelectProps } from '../../types/props/post-select-props.type'
 import StyledButton from '../../styles/components/styled-button'
 import DOMPurify from 'dompurify'
 
-const PostPreview = ({ post, onPostSelect }: PostReviewProps) => {
+const PostPreview = ({ post, onPostSelect }: PostSelectProps) => {
   const numberOfWords = 500
   const cleanHtml = DOMPurify.sanitize(
     post.content.slice(0, numberOfWords) + `${post.content.length > numberOfWords ? '...' : ''}`,

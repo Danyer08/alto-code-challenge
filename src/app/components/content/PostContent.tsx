@@ -2,8 +2,9 @@ import DOMPurify from 'dompurify'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import StyledIconButton from '../../styles/components/styled-icon-button'
+import { PostDeleteProps } from '../../types/props/post-delete-props.type'
 
-const PostContent = ({ post, onPostDelete }: any) => {
+const PostContent = ({ post, onPostDelete }: PostDeleteProps) => {
   const navigate = useNavigate()
   if (!post) {
     navigate('/blog')
