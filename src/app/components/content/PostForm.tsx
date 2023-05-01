@@ -9,10 +9,10 @@ import StyledTextarea from '../../styles/components/styled-textarea'
 const PostForm = ({ post, onSubmit }: PostFormProps) => {
   const navigate = useNavigate()
   const { id } = useParams()
-  const [title, setTitle] = useState(post ? post.title : '')
-  const [content, setContent] = useState(post ? post.content : '')
-  const [titleError, setTitleError] = useState('')
-  const [contentError, setContentError] = useState('')
+  const [title, setTitle] = useState<string>(post ? post.title : '')
+  const [content, setContent] = useState<string>(post ? post.content : '')
+  const [titleError, setTitleError] = useState<string>('')
+  const [contentError, setContentError] = useState<string>('')
 
   if (id && !post) {
     navigate('/blog')
@@ -26,15 +26,17 @@ const PostForm = ({ post, onSubmit }: PostFormProps) => {
       return
     }
 
-    const newPost = {
+    onSubmit(buildPost())
+    navigate('/blog')
+  }
+
+  const buildPost = () => {
+    return {
       id: post ? post.id : Date.now(),
       title,
       content,
       date: post ? post.date : new Date().toISOString(),
     }
-
-    onSubmit(newPost)
-    navigate('/blog')
   }
 
   const validateForm = (): boolean => {
@@ -43,9 +45,13 @@ const PostForm = ({ post, onSubmit }: PostFormProps) => {
       setContentError('')
       return true
     }
+    setFormErrors()
+    return false
+  }
+
+  const setFormErrors = () => {
     title.trim() ? setTitleError('') : setTitleError('Please enter a title')
     content.trim() ? setContentError('') : setContentError('Please enter some content')
-    return false
   }
 
   return (

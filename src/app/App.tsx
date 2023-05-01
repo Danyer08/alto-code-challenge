@@ -12,6 +12,10 @@ import SearchBar from './components/content/SearchBar'
 import styles from './styles/navbar.module.css'
 import { Post } from '../core/models/post.model'
 import { PostController } from '../infra/controllers/post-contoller'
+import { User } from '../core/models/user.model'
+import { UserContext } from './context/user-context'
+
+const user = new User(Date.now(), 'admin', 'admin@gmail.com', true)
 
 const App = () => {
   const [posts, setPosts] = useState<Array<Post>>([])
@@ -53,36 +57,38 @@ const App = () => {
   }
 
   return (
-    <Router>
-      <div className={styles['navbar']}>
-        <BlogLogo />
-        <MainMenu />
-        <SearchBar posts={posts} onPostSelect={handlePostSelect} />
-      </div>
-      <div className={styles['navbar-content-spacer']}></div>
-      <div className="p-5">
-        <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/about" element={<AboutPage />}></Route>
-          <Route path="/contact" element={<ContactPage />}></Route>
-          <Route
-            path="/blog"
-            element={
-              <BlogPage posts={posts} onPostSelect={handlePostSelect} onAddPost={handleAddPost} />
-            }
-          ></Route>
-          <Route
-            path="/blog/:id"
-            element={<PostPage post={selectedPost!} onPostDelete={handlePostDelete} />}
-          ></Route>
-          <Route path="/blog/new" element={<PostFormPage onSubmit={handlePostSubmit} />}></Route>
-          <Route
-            path="/blog/edit/:id"
-            element={<PostFormPage post={selectedPost} onSubmit={handlePostSubmit} />}
-          ></Route>
-        </Routes>
-      </div>
-    </Router>
+    <UserContext.Provider value={user}>
+      <Router>
+        <div className={styles['navbar']}>
+          <BlogLogo />
+          <MainMenu />
+          <SearchBar posts={posts} onPostSelect={handlePostSelect} />
+        </div>
+        <div className={styles['navbar-content-spacer']}></div>
+        <div className="p-5">
+          <Routes>
+            <Route path="/" element={<HomePage />}></Route>
+            <Route path="/about" element={<AboutPage />}></Route>
+            <Route path="/contact" element={<ContactPage />}></Route>
+            <Route
+              path="/blog"
+              element={
+                <BlogPage posts={posts} onPostSelect={handlePostSelect} onAddPost={handleAddPost} />
+              }
+            ></Route>
+            <Route
+              path="/blog/:id"
+              element={<PostPage post={selectedPost!} onPostDelete={handlePostDelete} />}
+            ></Route>
+            <Route path="/blog/new" element={<PostFormPage onSubmit={handlePostSubmit} />}></Route>
+            <Route
+              path="/blog/edit/:id"
+              element={<PostFormPage post={selectedPost} onSubmit={handlePostSubmit} />}
+            ></Route>
+          </Routes>
+        </div>
+      </Router>
+    </UserContext.Provider>
   )
 }
 

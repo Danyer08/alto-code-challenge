@@ -5,7 +5,7 @@ import DOMPurify from 'dompurify'
 
 const PostPreview = ({ post, onPostSelect }: PostSelectProps) => {
   const numberOfWords = 500
-  const cleanHtml = DOMPurify.sanitize(
+  const cleanHtml: string = DOMPurify.sanitize(
     post.content.slice(0, numberOfWords) + `${post.content.length > numberOfWords ? '...' : ''}`,
   )
   return (
