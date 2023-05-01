@@ -10,13 +10,11 @@
   
   .menu-item {
     height: 100%;
-    margin-right: var(--m-5);
+    padding: 0 var(--p-3);
     display: flex;
     align-items: center;
-  }
-  
-  .menu-item:last-child {
-    margin-right: 0;
+    transition: all 0.1s ease-out;
+    cursor: pointer;
   }
   
   .menu-item a {
@@ -24,6 +22,9 @@
     color: var(--white);
     font-weight: var(--font-weight-bold);
     padding: var(--p-2);
+    height: 100%;
+    display: flex;
+    align-items: center;
   }
   
   .menu-item:hover {

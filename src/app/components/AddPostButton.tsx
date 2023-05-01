@@ -1,10 +1,11 @@
 import React from 'react';
+import StyledButton from './styled/styled-button';
 
 const AddPostButton = ({ onClick }: any) => {
   return (
-    <button onClick={onClick}>
+    <StyledButton onClick={onClick}>
       Add Post
-    </button>
+    </StyledButton>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styles from '../styles/main-menu.module.css'
+import styles from '../../styles/main-menu.module.css'
 
 const MainMenu = () => {
   return (

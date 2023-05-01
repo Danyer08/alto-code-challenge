@@ -8,7 +8,11 @@ const StyledImage = styled.img`
 `
 
 const HeroImage = () => {
-  return <StyledImage src={heroImage} alt="Hero Image" />
+  return (
+    <div className='m--5'>
+      <StyledImage src={heroImage} alt="Hero Image" />
+    </div>
+  )
 }
 
 export default HeroImage
