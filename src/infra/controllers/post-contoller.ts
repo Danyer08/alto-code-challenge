@@ -18,15 +18,15 @@ export class PostController implements IPostContoller {
     return this.httpClient.getAll<Post>(ApiUrls.POSTS);
   }
 
-  addPost(post: Post): Promise<void> {
-    return this.httpClient.post<Post>(ApiUrls.POSTS, post);
+  addPost(post: Post): Promise<Post[]> {
+    return this.httpClient.post<Post>(ApiUrls.POSTS, post) as Promise<Post[]>;
   }
 
-  updatePost(post: Post): Promise<void> {
-    return this.httpClient.put<Post>(ApiUrls.POSTS, post);
+  updatePost(post: Post): Promise<Post[]> {
+    return this.httpClient.put<Post>(ApiUrls.POSTS, post) as Promise<Post[]>;
   }
 
-  deletePost(id: number): Promise<void> {
-    return this.httpClient.delete(ApiUrls.POSTS, id);
+  deletePost(id: number): Promise<Post[]> {
+    return this.httpClient.delete(ApiUrls.POSTS, id) as Promise<Post[]>;
   }
 }

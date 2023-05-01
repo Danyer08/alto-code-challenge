@@ -3,18 +3,18 @@ import styled from 'styled-components'
 
 const TextareaContainer = styled.div`
   position: relative;
-  width: 300px;
+  width: 50%;
   margin: 1rem auto;
 `
 
 const Textarea = styled.textarea`
   padding: 10px;
-  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   border-radius: 5px;
   border: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   font-size: 16px;
-
   &:focus {
     outline: none;
   }

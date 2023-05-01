@@ -26,20 +26,20 @@ export class HttpClient implements IHttpClient {
     })
   }
 
-  async post<T>(url: string, body: any): Promise<void> {
+  async post<T>(url: string, body: any): Promise<unknown> {
     return new Promise(async (resolve, reject) => {
       try {
         let items: Array<T> = await this.getCurrentItems<T>(url)
         items = [...items, body]
         localStorage.setItem(url, JSON.stringify(items))
-        resolve()
+        resolve(items)
       } catch (e) {
         reject(e)
       }
     })
   }
 
-  async put<T>(url: string, body: any): Promise<void> {
+  async put<T>(url: string, body: any): Promise<unknown> {
     return new Promise(async (resolve, reject) => {
       try {
         let items: Array<T> = await this.getCurrentItems<T>(url)
@@ -47,19 +47,19 @@ export class HttpClient implements IHttpClient {
         if (item) {
           items = items.filter((item: any) => item.id !== body.id)
         } else {
-          reject('Not found')
+          reject('Post not found to update')
         }
 
         items = [...items, body]
         localStorage.setItem(url, JSON.stringify(items))
-        resolve()
+        resolve(items)
       } catch (e) {
         reject(e)
       }
     })
   }
 
-  async delete<T>(url: string, id: number): Promise<void> {
+  async delete<T>(url: string, id: number): Promise<unknown> {
     return new Promise(async (resolve, reject) => {
       try {
         let items: Array<T> = await this.getCurrentItems<T>(url)
@@ -67,11 +67,11 @@ export class HttpClient implements IHttpClient {
         if (item) {
           items = items.filter((item: any) => item.id !== id)
         } else {
-          reject('Not found')
+          reject('Post not found to delete')
         }
 
         localStorage.setItem(url, JSON.stringify(items))
-        resolve()
+        resolve(items)
       } catch (e) {
         reject(e)
       }
@@ -81,11 +81,11 @@ export class HttpClient implements IHttpClient {
   private async getCurrentItems<T>(url: string): Promise<Array<T>> {
     const data = localStorage.getItem(url)
     const items: Array<T> = data ? JSON.parse(data) : null
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       if (items) {
         resolve(items)
       } else {
-        reject('Not found')
+        resolve([])
       }
     })
   }

@@ -50,16 +50,16 @@
 .search-bar button {
     height: 2.5rem;
     color: var(--white);
-    background-color: var(--secondary);
+    background-color: var(--gray-dark);
     border: none;
     border-radius: 0 0.5rem 0.5rem 0;
     cursor: pointer;
 }
 
 .search-bar button:hover {
-    background-color: var(--secondary-light);
+    background-color: var(--gray-light);
 }
 
 .search-bar button:active {
-    background-color: var(--secondary-dark);
+    background-color: var(--gray-dark);
 }

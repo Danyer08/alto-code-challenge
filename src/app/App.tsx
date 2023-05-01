@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import MainMenu from './components/content/MainMenu'
 import AboutPage from './pages/About'
@@ -8,16 +8,23 @@ import HomePage from './pages/Home'
 import PostFormPage from './pages/PostFormPage'
 import PostPage from './pages/PostPage'
 import BlogLogo from './components/BlogLogo'
-import { dummyPosts } from '../data/dummy-posts'
 import SearchBar from './components/content/SearchBar'
 import styles from './styles/navbar.module.css'
 import { Post } from '../core/models/post.model'
+import { PostController } from '../infra/controllers/post-contoller'
 
 const App = () => {
-  const [posts, setPosts] = useState<Array<Post>>(dummyPosts)
+  const [posts, setPosts] = useState<Array<Post>>([])
   const [selectedPost, setSelectedPost] = useState<Post | null>(null)
+  const postController = new PostController()
+  useEffect(() => {
+    postController.getPosts().then((posts) => {
+      setPosts(posts)
+    })
+  }, [])
 
   const handlePostSelect = (post: Post) => {
+    //TODO: Use redux to persist the selected post
     setSelectedPost(post)
   }
 
@@ -25,16 +32,25 @@ const App = () => {
     setSelectedPost(null)
   }
 
-  const handlePostSubmit = (newPost: Post) => {
+  const handlePostSubmit = async (post: Post) => {
     if (selectedPost) {
-      const updatedPosts = posts.map((post: Post) =>
-        post.id === selectedPost.id ? { ...post, ...newPost } : post,
-      )
-      setPosts(updatedPosts)
+      const posts = await postController.updatePost(post)
+      setPosts(posts)
     } else {
-      const newPosts = [...posts, { id: Date.now(), ...newPost }]
-      setPosts(newPosts)
+      const posts = await postController.addPost(post)
+      setPosts(posts)
     }
+  }
+
+  const handlePostDelete = (post: Post) => {
+    postController
+      .deletePost(post.id)
+      .then((posts) => {
+        setPosts(posts)
+      })
+      .catch((err) => {
+        console.error(err)
+      })
   }
 
   return (
@@ -56,7 +72,10 @@ const App = () => {
               <BlogPage posts={posts} onPostSelect={handlePostSelect} onAddPost={handleAddPost} />
             }
           ></Route>
-          <Route path="/blog/:id" element={<PostPage post={selectedPost} />}></Route>
+          <Route
+            path="/blog/:id"
+            element={<PostPage post={selectedPost} onPostDelete={handlePostDelete} />}
+          ></Route>
           <Route path="/blog/new" element={<PostFormPage onSubmit={handlePostSubmit} />}></Route>
           <Route
             path="/blog/edit/:id"

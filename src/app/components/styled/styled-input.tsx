@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const InputContainer = styled.div`
   position: relative;
-  width: 300px;
+  width: 50%;
   margin: 1rem auto;
 `
 
