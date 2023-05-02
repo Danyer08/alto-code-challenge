@@ -80,13 +80,9 @@ export class HttpClient implements IHttpClient {
 
   private async getCurrentItems<T>(url: string): Promise<Array<T>> {
     const data = localStorage.getItem(url)
-    const items: Array<T> = data ? JSON.parse(data) : null
+    const items: Array<T> = data ? JSON.parse(data) : []
     return new Promise((resolve) => {
-      if (items) {
-        resolve(items)
-      } else {
-        resolve([])
-      }
+      resolve(items)
     })
   }
 }

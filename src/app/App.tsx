@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import MainMenu from './components/content/MainMenu'
 import AboutPage from './pages/About'
 import BlogPage from './pages/BlogPage'
 import ContactPage from './pages/Contact'
 import HomePage from './pages/Home'
 import PostFormPage from './pages/PostFormPage'
 import PostPage from './pages/PostPage'
-import BlogLogo from './components/BlogLogo'
-import SearchBar from './components/content/SearchBar'
-import styles from './styles/navbar.module.css'
 import { Post } from '../core/models/post.model'
 import { PostController } from '../infra/controllers/post-contoller'
 import { User } from '../core/models/user.model'
 import { UserContext } from './context/user-context'
+import Navbar from './components/layout/Navbar'
 
 const user = new User(Date.now(), 'admin', 'admin@gmail.com', true)
 
@@ -59,12 +56,7 @@ const App = () => {
   return (
     <UserContext.Provider value={user}>
       <Router>
-        <div className={styles['navbar']}>
-          <BlogLogo />
-          <MainMenu />
-          <SearchBar posts={posts} onPostSelect={handlePostSelect} />
-        </div>
-        <div className={styles['navbar-content-spacer']}></div>
+        <Navbar posts={posts} onPostSelect={handlePostSelect} />
         <div className="p-5">
           <Routes>
             <Route path="/" element={<HomePage />}></Route>

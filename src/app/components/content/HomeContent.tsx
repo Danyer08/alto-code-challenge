@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from '../elements/Image'
+import Image from '../elements/Image/Image'
 
 const HomeContet = () => {
   return (
@@ -52,7 +52,7 @@ const HomeContet = () => {
             <Image src="https://picsum.photos/150/150" alt="..." />
             <Image src="https://picsum.photos/150/151" alt="..." />
             <Image src="https://picsum.photos/149/150" alt="..." />
-            <Image src="https://picsum.photos/150/150" alt="..." />
+            <Image src="https://picsum.photos/148/150" alt="..." />
             <Image src="https://picsum.photos/151/150" alt="..." />
           </div>
         </div>

@@ -28,6 +28,7 @@ const HeroImage = () => {
   const handleImageLoad = () => {
     setIsLoading(false)
   }
+
   return (
     <div className="m--5">
       <LazyLoad>

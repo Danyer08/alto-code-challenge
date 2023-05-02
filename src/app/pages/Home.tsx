@@ -1,5 +1,5 @@
 import React from 'react'
-import HeroImage from '../components/HeroImage'
+import HeroImage from '../components/elements/HeroImage/HeroImage'
 import HomeContent from '../components/content/HomeContent'
 
 const HomePage = () => {

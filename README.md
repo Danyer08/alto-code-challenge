@@ -48,3 +48,11 @@ npm start
 ```
 
 5. Open http://localhost:3000 to view it in the browser.
+
+## Testing
+
+To run the tests, run the following command:
+
+```sh
+npm test
+```

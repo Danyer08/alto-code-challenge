@@ -1,5 +1,5 @@
 import React from 'react'
-import { MenuLinkProps } from '../types/props/menu-link-props.type'
+import { MenuLinkProps } from '../../../types/props/menu-link-props.type'
 import { Link } from 'react-router-dom'
 
 const MenuLink = ({ href, label }: MenuLinkProps) => {

@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { PostListProps } from '../../types/props/post-list-props.type'
 import { Post } from '../../../core/models/post.model'
-import AutoComplete from '../AutoComplete'
+import AutoComplete from '../elements/AutoComplete/AutoComplete'
 import styles from '../../styles/search-bar.module.css'
 
 const SearchBar = ({ posts, onPostSelect }: PostListProps) => {
